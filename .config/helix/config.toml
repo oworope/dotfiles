@@ -1,0 +1,57 @@
+# |_   _  | o    
+# | | (/_ | | >< 
+
+# helix configuration
+
+# theme = "dark_plus"
+theme = "gruvbox_dark_hard"
+# theme = "poimandres"
+
+[editor]
+scrolloff = 5
+# line-number = "relative"
+cursorline = true
+cursorcolumn = false
+rulers = [80]
+bufferline = "multiple"
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+
+[editor.lsp]
+enable = true
+
+# or control each character
+[editor.whitespace.render]
+space = "none"
+tab = "none"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+tabpad = "·" # Tabs will look like "→···" (depending on tab width)
+
+[editor.indent-guides]
+render = true
+# character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 0
+wrap-indicator = ""  # set wrap-indicator to "" to hide it

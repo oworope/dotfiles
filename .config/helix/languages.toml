@@ -1,0 +1,19 @@
+[[language]]
+name = "cpp"
+indent = { tab-width = 4, unit = "\t"}
+
+[[language]]
+name = "c"
+indent = { tab-width = 4, unit = "\t"}
+
+[[language]]
+name = "rust"
+indent = { tab-width = 4, unit = "\t"}
+
+[[language]]
+name = "zig"
+indent = { tab-width = 4, unit = "\t"}
+
+[[language]]
+name = "odin"
+indent = { tab-width = 4, unit = "\t"}

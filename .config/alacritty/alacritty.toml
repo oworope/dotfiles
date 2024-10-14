@@ -1,0 +1,5 @@
+shell = "fish"
+
+[font]
+normal = { family = "CommitMono" }
+size = 13
