@@ -200,6 +200,7 @@ layout {
 spawn-at-startup "gammastep -l 56.32867:44.00205"
 // spawn-at-startup "waybar"
 spawn-at-startup "swayidle -w timeout 601 'niri msg action power-off-monitors' timeout 600 'swaylock -f' before-sleep 'swaylock -i /home/yhr/Pictures/Wallpapers/Mac/15-Sequoia-Dark-16x9.jpg -k'"
+spawn-at-startup "mako"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
