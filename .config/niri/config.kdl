@@ -197,8 +197,8 @@ layout {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "gammastep -l 56.32867:44.00205"
-// spawn-at-startup "waybar"
+spawn-at-startup "gammastep -l 56.32867:44.00205 -r -t 6500K:3000K"
+spawn-at-startup "waybar"
 spawn-at-startup "swayidle -w timeout 601 'niri msg action power-off-monitors' timeout 600 'swaylock -f' before-sleep 'swaylock -i /home/yhr/Pictures/Wallpapers/Mac/15-Sequoia-Dark-16x9.jpg -k'"
 spawn-at-startup "mako"
 
