@@ -1,16 +1,23 @@
 {
     "layer": "top",
+    "position": "bottom",
     "modules-left": ["niri/workspaces"],
     "modules-center": ["niri/window"],
     "modules-right": ["niri/language", "battery", "clock"],
-    "sway/window": {
+    "niri/window": {
         "max-length": 50
     },
     "battery": {
-        "format": "{capacity}% {icon}",
+        "format": "bat: {capacity}% ",
+        // {icon}",
         "format-icons": ["", "", "", "", ""]
     },
     "clock": {
         "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+    "niri/language": {
+    	"format": "lang: {long}",
+    	// "format-en": "abc",
+    	// "format-ru": "абв"
     }
 }

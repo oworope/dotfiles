@@ -1,9 +1,32 @@
 * {
-  font-size: 12px;
-  font-family: JetBrains Mono Nerd
+  font-size: 11px;
+  font-family: JetBrains Mono Nerd;
+  padding: 0 3px 0 3px;
+  color: #fbf1c7;
 }
 
 window#waybar {
-  background-color: #121212;
-  color: #ffffff;
+  background-color: #3c3836;
+  color: #fbf1c7;
 }
+
+#workspaces {
+  /* background: red; */
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+#workspaces button {
+  margin: 0;
+  padding: 0 3px 0 3px;
+  /* border-top: 3px solid transparent; */
+}
+
+#workspaces button.focused {
+  margin: 0;
+  border-radius: 0;
+  background-color: #98971a;
+  color: #3c3836;
+  /* border-top: 3px solid #98971a; */
+}
+
