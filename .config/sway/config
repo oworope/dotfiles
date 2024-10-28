@@ -14,32 +14,41 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+# set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu bemenu-run --no-exec | xargs swaymsg exec --
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-# output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
+
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# output * bg #121212 solid_color
+output * bg #000000 solid_color
+
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
+# Notifications
+exec mako
+
+# Sound
+exec pipewire
+
+# NightShift
+exec wlsunset 0l 56.326 -L 44.005
+
 ### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
+exec swayidle -w \
+         timeout 120 'swaylock -f -c 343434' \
+         timeout 150 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 300 'zzz' \
+         before-sleep 'swaylock -f -c 343434'
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -55,13 +64,26 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 #       middle_emulation enabled
 #   }
 #
+
+input "1267:47:Elan_Touchpad" {
+    natural_scroll enabled
+    tap enabled
+    dwt disabled
+}
+
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout us,ru
+    xkb_options grp:alt_shift_toggle
+    dwt disabled
+}
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
-#
+
 # Basics:
-#
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -70,6 +92,11 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    bindsym Mod4+p       exec shotman --capture window
+    bindsym Mod4+Shift+p exec shotman --capture region
+    bindsym Mod4+Ctrl+p  exec shotman --capture output
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -171,9 +198,8 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
+
 # Resizing containers:
-#
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -196,9 +222,14 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
+# Appearance
+
+default_border pixel
+gaps inner 5px
+gaps outer 5px
+font pango:IBM Plex Mono 10
+
 # Status Bar:
-#
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
@@ -206,11 +237,14 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command i3status
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        font pango:Roboto Mono 10
+        separator_symbol " :: "
+        # statusline #ffffff
+        # background #323232
+        # inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
 
